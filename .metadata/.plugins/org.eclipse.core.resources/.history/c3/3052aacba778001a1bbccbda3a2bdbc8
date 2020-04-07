@@ -1,0 +1,9 @@
+package com.PAFAssignment.HealthCare2.resources;
+
+public class AdminResource {
+	
+	public String getMessage() {
+		return "Hello User";
+	}
+
+}
