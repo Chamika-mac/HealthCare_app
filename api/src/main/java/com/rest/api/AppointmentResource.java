@@ -26,4 +26,11 @@ public class AppointmentResource {
 		return "Appointement Saved";
 	}
 	
+	@PUT
+	@Path("appointment")
+	public String updateAppintment(AppointmentModel obj) throws Exception {
+		AppointmentController.getInstance().update(obj);
+		return "Appointement Updated";
+	}
+	
 }

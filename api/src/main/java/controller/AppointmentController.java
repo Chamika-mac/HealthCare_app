@@ -28,5 +28,13 @@ public class AppointmentController {
 				+ "'" + obj.getDate() + "', '" + obj.getTime() + "', '" + obj.getDoctor_name() + "', '" + obj.getEmail()
 				+ "', " + "'" + obj.getContactNum() + "')");
 	}
+	
+	public void update(AppointmentModel obj) throws Exception {
+		con.getConnection();
+		con.aud("UPDATE appointment SET Name = '" + obj.getName() + "', date = '" + obj.getDate() + "', time = '"
+				+ obj.getTime() + "'," + "doctor_name = '" + obj.getDoctor_name() + "', email='" + obj.getEmail()
+				+ "', contactNum='" + obj.getContactNum() + "' " + "WHERE appointmentId='" + obj.getAppointementId()
+				+ "'");
+	}
 
 }
