@@ -29,7 +29,7 @@
 					<app>D:/PROFESSIONAL SOFTWARE DEVELOPMENT/SELF LERNING
 						PROJECTS/REST API/target/${project.build.finalName}.war</app>
 					<autoDelete>true</autoDelete>
-					<port>8080</port>
+					<port>8021</port>
 				</configuration>
 				<dependencies>
 					<dependency>

@@ -36,5 +36,11 @@ public class AppointmentController {
 				+ "', contactNum='" + obj.getContactNum() + "' " + "WHERE appointmentId='" + obj.getAppointementId()
 				+ "'");
 	}
+	
+
+	public void delete(AppointmentModel obj) throws Exception {
+		con.getConnection();
+		con.aud("DELETE FROM appointment WHERE appointmentId='" + obj.getAppointementId() + "'");
+	}
 
 }

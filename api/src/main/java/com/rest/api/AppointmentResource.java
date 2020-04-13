@@ -33,4 +33,13 @@ public class AppointmentResource {
 		return "Appointement Updated";
 	}
 	
+	@DELETE
+	@Path("appointment/{appointmentId}")
+	public String deleteAppintment(@PathParam("appointmentId") int appointmentId) throws Exception {
+		AppointmentModel obj = new AppointmentModel();
+		obj.setAppointementId(appointmentId);
+		AppointmentController.getInstance().delete(obj);
+		return "Appointement Deleted";
+	}
+	
 }
