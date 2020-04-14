@@ -19,6 +19,20 @@ import controller.AppointmentController;
 @Path("appointmentResources")
 public class AppointmentResource {
 	
+	@GET
+	@Path("appointments")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public List<AppointmentModel> getAllAppointment() throws Exception {		
+		return AppointmentController.getInstance().searchAll();
+	}
+	
+	@GET
+	@Path("appointment/{appointmentId}")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public AppointmentModel getAppointment(@PathParam("appointmentId") int appointmentId) throws Exception {		
+		return AppointmentController.getInstance().search(appointmentId);
+	}
+	
 	@POST
 	@Path("appointment")
 	public String saveAppintment(AppointmentModel obj) throws Exception {

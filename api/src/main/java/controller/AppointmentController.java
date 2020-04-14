@@ -42,5 +42,42 @@ public class AppointmentController {
 		con.getConnection();
 		con.aud("DELETE FROM appointment WHERE appointmentId='" + obj.getAppointementId() + "'");
 	}
+	
+	public List<AppointmentModel> searchAll() throws Exception {
+		List<AppointmentModel> list = new ArrayList<AppointmentModel>();
+		con.getConnection();
+		ResultSet rset = con.srh("SELECT * FROM appointment");
+		while (rset.next()) {
+			AppointmentModel obj = new AppointmentModel();
+			obj.setAppointementId(rset.getInt(1));
+			obj.setName(rset.getString(2));
+			obj.setDate(rset.getString(3));
+			obj.setTime(rset.getString(4));
+			obj.setDoctor_name(rset.getString(5));
+			obj.setEmail(rset.getString(6));
+			obj.setContactNum(rset.getString(7));
+
+			list.add(obj);
+		}
+		return list;
+	}
+
+	public AppointmentModel search(int appointmentId) throws Exception {
+		con.getConnection();
+		AppointmentModel obj = null;
+		ResultSet rset = con.srh("SELECT * FROM appointment WHERE appointmentId='" + appointmentId + "'");
+		while (rset.next()) {
+			obj = new AppointmentModel();
+			obj.setAppointementId(rset.getInt(1));
+			obj.setName(rset.getString(2));
+			obj.setDate(rset.getString(3));
+			obj.setTime(rset.getString(4));
+			obj.setDoctor_name(rset.getString(5));
+			obj.setEmail(rset.getString(6));
+			obj.setContactNum(rset.getString(7));
+
+		}
+		return obj;
+	}         
 
 }
