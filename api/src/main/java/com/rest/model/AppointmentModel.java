@@ -12,6 +12,8 @@ public class AppointmentModel {
 	private String doctor_name;
 	private String email;
 	private String contactNum;
+	private String Hospital_Name;
+	
 	public int getAppointementId() {
 		return appointementId;
 	}
@@ -53,6 +55,12 @@ public class AppointmentModel {
 	}
 	public void setContactNum(String contactNum) {
 		this.contactNum = contactNum;
+	}
+	public String getHospitalName() {
+		return Hospital_Name;
+	}
+	public void setHospitalName(String Hospital_Name) {
+		this.Hospital_Name = Hospital_Name;
 	}
 	
 	

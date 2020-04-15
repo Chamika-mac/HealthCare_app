@@ -24,16 +24,16 @@ public class AppointmentController {
 
 	public void save(AppointmentModel obj) throws Exception {
 		con.getConnection();
-		con.aud("INSERT INTO appointment(Name,date,time,doctor_name,email,contactNum) VALUES ('" + obj.getName() + "', "
+		con.aud("INSERT INTO appointment(Name,date,time,doctor_name,email,contactNum,Hospital_Name) VALUES ('" + obj.getName() + "', "
 				+ "'" + obj.getDate() + "', '" + obj.getTime() + "', '" + obj.getDoctor_name() + "', '" + obj.getEmail()
-				+ "', " + "'" + obj.getContactNum() + "')");
+				+ "', " + "'" + obj.getContactNum() + "'" + obj.getHospitalName() + "')");
 	}
 	
 	public void update(AppointmentModel obj) throws Exception {
 		con.getConnection();
 		con.aud("UPDATE appointment SET Name = '" + obj.getName() + "', date = '" + obj.getDate() + "', time = '"
 				+ obj.getTime() + "'," + "doctor_name = '" + obj.getDoctor_name() + "', email='" + obj.getEmail()
-				+ "', contactNum='" + obj.getContactNum() + "' " + "WHERE appointmentId='" + obj.getAppointementId()
+				+ "', contactNum='" + obj.getContactNum() + "', HospitalName='" + obj.getHospitalName() + "' " + "WHERE appointmentId='" + obj.getAppointementId()
 				+ "'");
 	}
 	
@@ -56,6 +56,7 @@ public class AppointmentController {
 			obj.setDoctor_name(rset.getString(5));
 			obj.setEmail(rset.getString(6));
 			obj.setContactNum(rset.getString(7));
+			obj.setHospitalName(rset.getString(8));
 
 			list.add(obj);
 		}
@@ -75,6 +76,7 @@ public class AppointmentController {
 			obj.setDoctor_name(rset.getString(5));
 			obj.setEmail(rset.getString(6));
 			obj.setContactNum(rset.getString(7));
+			obj.setHospitalName(rset.getString(8));
 
 		}
 		return obj;
