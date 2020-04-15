@@ -9,7 +9,7 @@ import com.rest.model.DoctorModel;
 import DBConnector.Connector;
 
 public class DoctorController {
-	
+
 	Connector con = Connector.getInstance();
 
 	private DoctorController() {
@@ -24,24 +24,24 @@ public class DoctorController {
 
 	public void save(DoctorModel obj) throws Exception {
 		con.getConnection();
-		con.aud("INSERT INTO doctor(Name,UserName,ContactNum,Email,Sex,Address,Password) VALUES ('" + obj.getName() + "', '" + obj.getUserName() + "', '" + obj.getContactNum() + "', '" + obj.getEmail() + "', '" + obj.getSex()
-				+ "', " + "'" + obj.getAddress() + "', '" + obj.getPassword()  + "')");
+		con.aud("INSERT INTO doctor(Name,UserName,ContactNum,Email,Sex,Address,Password) VALUES ('" + obj.getName()
+				+ "', '" + obj.getUserName() + "', '" + obj.getContactNum() + "', '" + obj.getEmail() + "', '"
+				+ obj.getSex() + "', " + "'" + obj.getAddress() + "', '" + obj.getPassword() + "')");
 	}
-	
+
 	public void update(DoctorModel obj) throws Exception {
 		con.getConnection();
-		con.aud("UPDATE doctor SET Name = '" + obj.getName() + "', UserName = '" + obj.getUserName() + "', ContactNum = '"
-				+ obj.getContactNum() + "'," + "Email = '" + obj.getEmail() + "', Sex='" + obj.getSex()
-				+ "', Address='" + obj.getAddress() + "', Password='" + obj.getPassword() + "' " + "WHERE doctorId='" + obj.getdoctorId()
-				+ "'");
+		con.aud("UPDATE doctor SET Name = '" + obj.getName() + "', UserName = '" + obj.getUserName()
+				+ "', ContactNum = '" + obj.getContactNum() + "'," + "Email = '" + obj.getEmail() + "', Sex='"
+				+ obj.getSex() + "', Address='" + obj.getAddress() + "', Password='" + obj.getPassword() + "' "
+				+ "WHERE doctorId='" + obj.getdoctorId() + "'");
 	}
-	
 
 	public void delete(DoctorModel obj) throws Exception {
 		con.getConnection();
 		con.aud("DELETE FROM doctor WHERE doctorId='" + obj.getdoctorId() + "'");
 	}
-	
+
 	public List<DoctorModel> searchAll() throws Exception {
 		List<DoctorModel> list = new ArrayList<DoctorModel>();
 		con.getConnection();
@@ -79,7 +79,6 @@ public class DoctorController {
 
 		}
 		return obj;
-	}         
-
+	}
 
 }

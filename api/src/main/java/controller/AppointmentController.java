@@ -26,14 +26,14 @@ public class AppointmentController {
 		con.getConnection();
 		con.aud("INSERT INTO appointment(Name,date,time,doctor_name,email,contactNum,Hospital_Name) VALUES ('" + obj.getName() + "', "
 				+ "'" + obj.getDate() + "', '" + obj.getTime() + "', '" + obj.getDoctor_name() + "', '" + obj.getEmail()
-				+ "', " + "'" + obj.getContactNum() + "'" + obj.getHospitalName() + "')");
+				+ "', " + "'" + obj.getContactNum() + "', '" + obj.getHospitalName() + "')");
 	}
 	
 	public void update(AppointmentModel obj) throws Exception {
 		con.getConnection();
 		con.aud("UPDATE appointment SET Name = '" + obj.getName() + "', date = '" + obj.getDate() + "', time = '"
 				+ obj.getTime() + "'," + "doctor_name = '" + obj.getDoctor_name() + "', email='" + obj.getEmail()
-				+ "', contactNum='" + obj.getContactNum() + "', HospitalName='" + obj.getHospitalName() + "' " + "WHERE appointmentId='" + obj.getAppointementId()
+				+ "', contactNum='" + obj.getContactNum() + "', Hospital_Name='" + obj.getHospitalName() + "' " + "WHERE appointmentId='" + obj.getAppointementId()
 				+ "'");
 	}
 	
