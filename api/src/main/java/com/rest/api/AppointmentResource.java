@@ -19,11 +19,41 @@ import controller.AppointmentController;
 @Path("appointmentResources")
 public class AppointmentResource {
 	
+	@GET
+	@Path("appointments")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public List<AppointmentModel> getAllAppointment() throws Exception {		
+		return AppointmentController.getInstance().searchAll();
+	}
+	
+	@GET
+	@Path("appointment/{appointmentId}")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public AppointmentModel getAppointment(@PathParam("appointmentId") int appointmentId) throws Exception {		
+		return AppointmentController.getInstance().search(appointmentId);
+	}
+	
 	@POST
 	@Path("appointment")
 	public String saveAppintment(AppointmentModel obj) throws Exception {
 		AppointmentController.getInstance().save(obj);
 		return "Appointement Saved";
+	}
+	
+	@PUT
+	@Path("appointment")
+	public String updateAppintment(AppointmentModel obj) throws Exception {
+		AppointmentController.getInstance().update(obj);
+		return "Appointement Updated";
+	}
+	
+	@DELETE
+	@Path("appointment/{appointmentId}")
+	public String deleteAppintment(@PathParam("appointmentId") int appointmentId) throws Exception {
+		AppointmentModel obj = new AppointmentModel();
+		obj.setAppointementId(appointmentId);
+		AppointmentController.getInstance().delete(obj);
+		return "Appointement Deleted";
 	}
 	
 }
